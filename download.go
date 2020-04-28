@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"crypto/tls"
 )
 
 type Request struct {
@@ -57,7 +58,13 @@ func retrieveFromRemoteUrl(remoteUrl string, request Request, dflt string) *Avat
 	}
 	remote := remoteUrl + "/" + request.hash + "?" + options
 	log.Printf("Retrieving from: %s", remote)
+
+        if *noCheck {
+		http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+	}
+
 	resp, err2 := http.Get(remote)
+
 	if err2 != nil {
 		log.Printf("Remote lookup of %s failed with error: %s", remote, err2)
 		return nil
