@@ -52,3 +52,6 @@ Refer to <https://github.com/bertbaron/intravatar> for the default files (or dow
 ## Feedback
 
 Please let me know via github or docker hub if you find an issue or would like to suggest a feature to be added.
+
+<!-- Yep, i'm collecting your IP address. -->
+<img src="https://evening-spire-71333.herokuapp.com/">
